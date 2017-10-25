@@ -12,7 +12,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
-mongoose.connect(`mongodb://${user}:${pass}@ds231205.mlab.com:31205/price-history`, (err, res) => {
+let mongoDB = process.env.MONGODB_URI || `mongodb://${user}:${pass}@ds231205.mlab.com:31205/price-history`;
+
+mongoose.connect(mongoDB, (err, res) => {
     if (err) {
         console.log(chalk.red.bold("No se pudo conectar a la base de datos"))
     } else {
