@@ -1,19 +1,56 @@
-# Server REST precios
+# Server price-history
 
-Servidor REST hecho en node.js
+## Descripcion
 
-## Pre - requisitos
+Servidor REST hecho en node.js como backend para el proyecto price-history
 
-Para empezar es necesario tener instalado Node.js
+## Dependencias 
 
-## Pasos para iniciar el servidor
+- mongodb instalado y ejecutandose
+- NodeJs
+- NPM
+- Editor al gusto del desarrollador
 
-Primero cargar todos los modulos de node necesarios:
+## Como levantar el proyecto
+
+**Clone e instalar dependencias**
 ```
-$ npm install
+> git clone urlproyecto
+> cd server-price-history
+> npm install
 ```
-Para iniciar la base de datos:
+**Arrancar el proyecto**
 ```
-$ npm start
+> npm start
 ```
-Por consola te dira el puerto en el que esta el servidor (por defecto 4000)
+
+## Rutas
+
+
+### "/"
+
+- **GET** Devuelve las rutas del proyecto.
+
+### "/register/"
+
+- **POST** Crea un usuario y registra un usuario
+  - Datos necesarios: name, lastname, mail, password.
+
+### "/login/"
+
+- **POST** Crea un token para hacer las siguientes llamadas.
+
+### "/users/"
+
+- **GET** Devuelve el listado de Usuarios
+- **GET** + **id** Devuelve un usario por su ID
+- **PUT** + **id** Update de un usuario por ID
+- **DELETE** + **id** Borra un Usuario
+
+### "/producto/"
+
+- **GET** Devuelve el listado de productos
+- **GET** + **id** Devuelve un producto por su ID
+- **POST** Crea un producto
+- **PUT** + **id** Update de un producto por ID
+- **DELETE** + **id** Borra un producto
