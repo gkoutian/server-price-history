@@ -54,3 +54,5 @@ Servidor REST hecho en node.js como backend para el proyecto price-history
 - **POST** Crea un producto
 - **PUT** + **id** Update de un producto por ID
 - **DELETE** + **id** Borra un producto
+
+Este servidor funciona con Price-History que podes visitar en: [www.gustavokoutian.com/proyectos/price-history/](https://www.gustavokoutian.com/proyectos/price-history/)
