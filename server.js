@@ -35,6 +35,9 @@ app.use('/products', authValidator, errorhandler, productRouter);
 app.use('/users', authValidator, errorhandler, usersRouter);
 app.post('/upload', upload.single('file'), (req, res) => {
     let data = req
-    res.status(201).json({filename: 'https://server-price-history.herokuapp.com/' + data.file.filename});
+    res.status(201).json({filename: 'https://server-price-history.herokuapp.com/uploads/' + data.file.filename});
 })
-
+app.get('/uploads/:imageId', (req, res) => {
+    let imageId = req.params.imageId;
+    res.sendFile('uploads/' + imageId)
+})
