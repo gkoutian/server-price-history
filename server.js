@@ -39,5 +39,5 @@ app.post('/upload', upload.single('file'), (req, res) => {
 })
 app.get('/uploads/:imageId', (req, res) => {
     let imageId = req.params.imageId;
-    res.sendFile('uploads/' + imageId)
+    res.sendFile('/uploads/' + imageId)
 })
