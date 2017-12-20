@@ -4,6 +4,8 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const chalk = require('chalk');
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/'})
 
 
 mongoose.connect(`mongodb://user:pass@ds231205.mlab.com:31205/price-history`, (err, res) => {
@@ -31,4 +33,8 @@ app.use('/register', registerRouter);
 app.use('/login', loginRouter);
 app.use('/products', authValidator, errorhandler, productRouter);
 app.use('/users', authValidator, errorhandler, usersRouter);
+app.post('/upload', upload.single('file'), (req, res) => {
+    let data = req
+    res.status(201).json({filename: 'https://server-price-history.herokuapp.com/' + data.file.filename});
+})
 

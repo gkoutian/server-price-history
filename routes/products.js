@@ -37,6 +37,7 @@ router.get('/buscar/:data', (req,res) => {
 })
 
 router.post('/', (req, res) => {
+    console.log("cuerpo: " + req.body);
     let data = new Producto(req.body);
     data.history = [];
     data.save()
